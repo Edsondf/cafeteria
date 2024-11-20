@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.btn-primary:disabled {
+    background-color: #9ca3af;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.btn-success {
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 4px;
+}
+
+.input-field {
+    border-width: 1px;
+    border-color: #d1d5db;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.page-container {
+    padding: 16px;
+}
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
+
+.action-bar {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.list-group-item {
+    padding: 12px;
+    border-bottom-width: 1px;
+    border-bottom-color: #e5e7eb;
+}

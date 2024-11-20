@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Cliente" class="action-bar">
+        <NavigationButton text="Cancelar" tap="{{ onCancel }}" />
+        <ActionItem ios.position="right" android.position="actionBar">
+            <Button text="Salvar" tap="{{ onSave }}" class="btn-primary" isEnabled="true" />
+        </ActionItem>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="page-container">
+            <TextField hint="Nome" text="{{ name }}" class="input-field" />
+            <TextField hint="Email" text="{{ email }}" keyboardType="email" class="input-field" />
+            <TextField hint="Telefone" text="{{ phone }}" keyboardType="phone" class="input-field" />
+            <GridLayout columns="auto, *" class="mb-4">
+                <Label text="Cliente Mensal" col="0" />
+                <Switch checked="{{ isMonthly }}" col="1" />
+            </GridLayout>
+            <TextField hint="Crédito Mensal" text="{{ monthlyCredit }}" keyboardType="number" 
+                      visibility="{{ isMonthly ? 'visible' : 'collapsed' }}" class="input-field" />
+            
+            <Button text="Salvar" tap="{{ onSave }}" class="btn-primary" isEnabled="true" />
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Selecionar Cliente" class="action-bar">
+        <NavigationButton text="Voltar" tap="{{ onCancel }}" />
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <SearchBar row="0" hint="Buscar cliente..." text="{{ searchQuery }}" 
+                  submit="{{ onSearch }}" clear="{{ onClear }}" />
+        
+        <ListView row="1" items="{{ filteredCustomers }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="list-group-item" tap="{{ $parent.onSelectCustomer }}">
+                    <StackLayout col="0">
+                        <Label text="{{ name }}" class="font-bold" />
+                        <Label text="{{ email }}" />
+                        <Label text="{{ isMonthly ? 'Cliente Mensal' : 'Cliente Comum' }}" class="text-green-600" />
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

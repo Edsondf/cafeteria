@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Produto" class="action-bar">
+        <NavigationButton text="Cancelar" tap="{{ onCancel }}" />
+    </ActionBar>
+    
+    <StackLayout class="page-container">
+        <TextField hint="Nome do Produto" text="{{ name }}" class="input-field" />
+        <TextField hint="Preço" text="{{ price }}" keyboardType="number" class="input-field" />
+        <TextField hint="Quantidade" text="{{ quantity }}" keyboardType="number" class="input-field" />
+        <TextField hint="Descrição" text="{{ description }}" class="input-field" />
+        
+        <Button text="Salvar" tap="{{ onSave }}" class="btn-primary" />
+    </StackLayout>
+</Page>

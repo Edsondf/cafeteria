@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Dashboard" class="action-bar">
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Image src="~/images/logout.png" width="24" height="24" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *" class="p-4">
+        <StackLayout row="0" class="mb-4">
+            <Image src="~/images/coffee.png" width="48" height="48" class="mb-2" />
+            <Label text="Cafeteria Dashboard" class="text-2xl font-bold text-center mb-2" />
+            <Label text="{{ welcomeMessage }}" class="text-lg text-center text-green-600 mb-4" />
+        </StackLayout>
+
+        <GridLayout row="1" columns="*, *" rows="*, *" class="gap-4">
+            <!-- Sales Register -->
+            <StackLayout col="0" row="0" class="bg-blue-100 rounded-lg p-4" tap="{{ onSalesRegister }}">
+                <Image src="~/images/cart.png" width="48" height="48" class="mb-2" />
+                <Label text="Registrar Venda" class="font-semibold text-center" textWrap="true" />
+            </StackLayout>
+
+            <!-- Inventory -->
+            <StackLayout col="1" row="0" class="bg-green-100 rounded-lg p-4" tap="{{ onInventory }}">
+                <Image src="~/images/box.png" width="48" height="48" class="mb-2" />
+                <Label text="Controle de Estoque" class="font-semibold text-center" textWrap="true" />
+            </StackLayout>
+
+            <!-- Monthly Customers -->
+            <StackLayout col="0" row="1" class="bg-purple-100 rounded-lg p-4" tap="{{ onCustomers }}">
+                <Image src="~/images/users.png" width="48" height="48" class="mb-2" />
+                <Label text="Clientes Mensais" class="font-semibold text-center" textWrap="true" />
+            </StackLayout>
+
+            <!-- Reports -->
+            <StackLayout col="1" row="1" class="bg-orange-100 rounded-lg p-4" tap="{{ onReports }}">
+                <Image src="~/images/chart.png" width="48" height="48" class="mb-2" />
+                <Label text="Relatórios" class="font-semibold text-center" textWrap="true" />
+            </StackLayout>
+        </GridLayout>
+    </GridLayout>
+</Page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Relatórios" class="action-bar">
+        <NavigationButton text="&#xf060;" class="fas" android.systemIcon="ic_menu_back" /> <!-- Ícone de voltar -->
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="page-container">
+            <Label text="&#xf201;" class="fas text-4xl text-center text-orange-600 mb-2" /> <!-- Ícone de gráfico -->
+            <Label text="Relatórios" class="text-2xl font-bold text-center mb-4" />
+            
+            <!-- Resumo -->
+            <GridLayout rows="auto, auto" columns="*, *" class="mb-4">
+                <Label row="0" col="0" text="&#xf07a; Total de Vendas:" class="fas font-bold" /> <!-- Ícone de carrinho -->
+                <Label row="0" col="1" text="{{ totalSales }}" />
+                <Label row="1" col="0" text="&#xf0d6; Faturamento:" class="fas font-bold" /> <!-- Ícone de dinheiro -->
+                <Label row="1" col="1" text="{{ 'R$ ' + totalRevenue }}" />
+            </GridLayout>
+
+            <!-- Lista de Vendas -->
+            <Label text="&#xf0cb; Últimas Vendas" class="fas text-xl font-bold mb-2" /> <!-- Ícone de lista -->
+            <ListView items="{{ sales }}" class="list-group">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, auto" class="list-group-item">
+                        <StackLayout col="0">
+                            <Label text="{{ 'Venda #' + id }}" class="font-bold" />
+                            <Label text="{{ 'Data: ' + date }}" />
+                            <Label text="{{ 'Total: R$ ' + total }}" class="text-green-600" />
+                        </StackLayout>
+                        <Button col="1" text="&#xf06e;" class="fas btn-primary" tap="{{ $parent.onViewSaleDetails }}" /> <!-- Ícone de visualizar -->
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</Page>

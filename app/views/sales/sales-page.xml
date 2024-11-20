@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Registro de Vendas" class="action-bar">
+        <NavigationButton>
+            <Image src="~/images/back.png" width="24" height="24" />
+        </NavigationButton>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="page-container">
+            <Image src="~/images/cart.png" width="48" height="48" class="mb-2" />
+            <Label text="Nova Venda" class="text-2xl font-bold text-center mb-4" />
+            
+            <!-- Cliente -->
+            <Label text="Cliente:" class="font-bold mb-2" />
+            <GridLayout columns="*, auto" class="mb-4">
+                <TextField col="0" hint="Selecione um cliente" text="{{ selectedCustomerName }}" editable="false" class="input-field" />
+                <Button col="1" tap="{{ onSelectCustomer }}" class="btn-primary">
+                    <Image src="~/images/search.png" width="24" height="24" />
+                </Button>
+            </GridLayout>
+
+            <!-- Produtos -->
+            <Label text="Produtos:" class="font-bold mb-2" />
+            <ListView items="{{ cartItems }}" class="mb-4" height="200">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, auto, auto" class="p-2">
+                        <Label col="0" text="{{ product.name }}" />
+                        <TextField col="1" text="{{ quantity }}" keyboardType="number" class="w-16 text-center" />
+                        <Button col="2" tap="{{ $parent.onRemoveItem }}" class="btn-danger">
+                            <Image src="~/images/trash.png" width="24" height="24" />
+                        </Button>
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+
+            <Button tap="{{ onAddProduct }}" class="btn-primary mb-4">
+                <GridLayout columns="auto, *" class="p-2">
+                    <Image col="0" src="~/images/plus.png" width="24" height="24" />
+                    <Label col="1" text="Adicionar Produto" class="ml-2" />
+                </GridLayout>
+            </Button>
+
+            <!-- Total -->
+            <Label text="{{ 'Total: R$ ' + total }}" class="text-xl font-bold text-center mb-4" />
+
+            <!-- Finalizar -->
+            <Button tap="{{ onFinishSale }}" class="btn-success">
+                <GridLayout columns="auto, *" class="p-2">
+                    <Image col="0" src="~/images/check.png" width="24" height="24" />
+                    <Label col="1" text="Finalizar Venda" class="ml-2" />
+                </GridLayout>
+            </Button>
+        </StackLayout>
+    </ScrollView>
+</Page>

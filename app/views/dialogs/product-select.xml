@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Selecionar Produto" class="action-bar">
+        <NavigationButton>
+            <Image src="~/images/back.png" width="24" height="24" />
+        </NavigationButton>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <SearchBar row="0" hint="Buscar produto..." text="{{ searchQuery }}" 
+                  submit="{{ onSearch }}" clear="{{ onClear }}" />
+        
+        <ListView row="1" items="{{ filteredProducts }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *, auto" class="list-group-item" tap="{{ $parent.onSelectProduct }}">
+                    <Image col="0" src="~/images/box.png" width="24" height="24" class="mr-2" />
+                    <StackLayout col="1">
+                        <Label text="{{ name }}" class="font-bold" />
+                        <Label text="{{ 'R$ ' + price }}" />
+                        <Label text="{{ 'Estoque: ' + quantity }}" />
+                    </StackLayout>
+                    <Image col="2" src="~/images/plus.png" width="24" height="24" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

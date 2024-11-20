@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Detalhes da Venda" class="action-bar">
+        <NavigationButton text="Voltar" tap="{{ onBack }}" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="page-container">
+            <Label text="{{ 'Venda #' + sale.id }}" class="text-2xl font-bold text-center mb-4" />
+            <Label text="{{ 'Data: ' + formattedDate }}" class="mb-4" />
+            
+            <Label text="Cliente:" class="font-bold" />
+            <Label text="{{ customerName }}" class="mb-4" />
+            
+            <Label text="Produtos:" class="font-bold" />
+            <ListView items="{{ sale.products }}" height="200">
+                <ListView.itemTemplate>
+                    <GridLayout columns="*, auto, auto" class="p-2">
+                        <Label col="0" text="{{ productName }}" />
+                        <Label col="1" text="{{ quantity + 'x' }}" />
+                        <Label col="2" text="{{ 'R$ ' + (price * quantity) }}" />
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <Label text="{{ 'Total: R$ ' + sale.total }}" class="text-xl font-bold text-center mt-4" />
+        </StackLayout>
+    </ScrollView>
+</Page>

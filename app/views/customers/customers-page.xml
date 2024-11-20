@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Clientes" class="action-bar">
+        <NavigationButton text="&#xf060;" class="fas" android.systemIcon="ic_menu_back" /> <!-- Ícone de voltar -->
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="p-4">
+            <Label text="&#xf0c0;" class="fas text-4xl text-center text-purple-600 mb-2" /> <!-- Ícone de usuários -->
+            <Button text="&#xf067; Novo Cliente" class="fas btn-primary mb-4" tap="{{ onAddCustomer }}" /> <!-- Ícone de adicionar -->
+        </StackLayout>
+
+        <ListView row="1" items="{{ customers }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="list-group-item">
+                    <StackLayout col="0">
+                        <Label text="{{ name }}" class="font-bold" />
+                        <Label text="{{ email }}" />
+                        <Label text="{{ phone }}" />
+                        <Label text="{{ isMonthly ? '&#xf005; Cliente Mensal' : 'Cliente Comum' }}" class="fas text-green-600" /> <!-- Ícone de estrela -->
+                    </StackLayout>
+                    <Button col="1" text="&#xf044;" class="fas btn-primary" tap="{{ $parent.onEditCustomer }}" /> <!-- Ícone de editar -->
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

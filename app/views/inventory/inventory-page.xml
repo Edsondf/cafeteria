@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Controle de Estoque" class="action-bar">
+        <NavigationButton text="&#xf060;" class="fas" android.systemIcon="ic_menu_back" /> <!-- Ícone de voltar -->
+    </ActionBar>
+    
+    <GridLayout rows="auto, *">
+        <StackLayout row="0" class="p-4">
+            <Label text="&#xf1b3;" class="fas text-4xl text-center text-green-600 mb-2" /> <!-- Ícone de caixa -->
+            <Button text="&#xf067; Adicionar Produto" class="fas btn-primary mb-4" tap="{{ onAddProduct }}" /> <!-- Ícone de adicionar -->
+        </StackLayout>
+
+        <ListView row="1" items="{{ products }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto, auto" class="list-group-item">
+                    <StackLayout col="0">
+                        <Label text="{{ name }}" class="font-bold" />
+                        <Label text="{{ 'Quantidade: ' + quantity }}" />
+                        <Label text="{{ 'Preço: R$ ' + price }}" />
+                    </StackLayout>
+                    <Button col="1" text="&#xf044;" class="fas btn-primary" tap="{{ $parent.onEditProduct }}" /> <!-- Ícone de editar -->
+                    <Button col="2" text="&#xf067;" class="fas btn-success" tap="{{ $parent.onAddStock }}" /> <!-- Ícone de adicionar -->
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
